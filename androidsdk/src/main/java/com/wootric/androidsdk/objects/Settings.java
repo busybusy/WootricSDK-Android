@@ -25,6 +25,7 @@ package com.wootric.androidsdk.objects;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 
 import com.wootric.androidsdk.Constants;
 import com.wootric.androidsdk.R;
@@ -191,7 +192,7 @@ public class Settings implements Parcelable {
             followupPlaceholder =  adminPanelCustomMessage.getPlaceholderForScore(score);
         }
 
-        if(followupPlaceholder == null) {
+        if(TextUtils.isEmpty(followupPlaceholder)) {
             followupPlaceholder = localizedTexts.getFollowupPlaceholder();
         }
 
