@@ -61,20 +61,24 @@
             android:textSize="@dimen/wootric_anchors_text_size"
             android:text="@string/wootric_example_anchor_likely"/>
 
-        <EditText
-            android:id="@+id/wootric_et_feedback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:nextFocusUp="@id/wootric_et_feedback"
-            android:nextFocusLeft="@id/wootric_et_feedback"
-            android:textCursorDrawable="@drawable/wootric_feedback_cursor"
-            android:layout_alignParentTop="true"
-            android:imeOptions="actionDone"
-            android:singleLine="true"
-            android:textSize="@dimen/wootric_et_feedback_text_size"
-            android:paddingBottom="@dimen/wootric_et_feedback_padding"
-            android:paddingTop="@dimen/wootric_et_feedback_padding"
-            android:hint="@string/wootric_example_followup_placeholder" />
+        <android.support.design.widget.TextInputLayout
+            android:id = "@+id/username_layout"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id = "@+id/wootric_et_feedback"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:textCursorDrawable="@drawable/wootric_feedback_cursor"
+                android:layout_alignParentTop="true"
+                android:imeOptions="actionDone"
+                android:textSize="@dimen/wootric_et_feedback_text_size"
+                android:paddingBottom="@dimen/wootric_et_feedback_padding"
+                android:paddingTop="@dimen/wootric_et_feedback_padding"
+                android:hint="@string/wootric_example_followup_placeholder"
+                android:inputType = "textAutoComplete" />
+        </android.support.design.widget.TextInputLayout>
 
         <TextView
             android:id="@+id/wootric_btn_edit_score"

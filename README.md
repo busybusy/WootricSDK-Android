@@ -21,21 +21,10 @@ View the Android demo [here.](http://cl.ly/0h112M290m04)
 
 This library is distributed as Android library project so it can be included by referencing it as a library project.
 
-### Using Maven
-If you use Maven, you can include this library as a dependency:
-
-```xml
-<dependency>
-    <groupId>com.wootric</groupId>
-    <artifactId>wootric-sdk-android</artifactId>
-    <version>2.4.10</version>
-</dependency>
-```
-
 ### Using Gradle
 
 ```xml
-compile 'com.wootric:wootric-sdk-android:2.4.10'
+compile 'com.github.busybusy:WootricSDK-Android:busy_modifications-SNAPSHOT'
 ```
 
 ## Initializing Wootric

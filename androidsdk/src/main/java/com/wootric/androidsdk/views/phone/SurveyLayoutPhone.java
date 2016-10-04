@@ -185,6 +185,7 @@ public class SurveyLayoutPhone extends LinearLayout
         etFeedbackBackground.setAlpha(26);
         mEtFeedback.setOnFocusChangeListener(onEtFeedbackFocusChanged());
         mEtFeedback.addTextChangedListener(etFeedbackTextWatcher());
+        mEtFeedback.setMaxLines(8);
 
         mBtnEditScore = (TextView) mLayoutBody.findViewById(R.id.wootric_btn_edit_score);
         mBtnEditScore.setOnClickListener(onEditScoreClick());
@@ -489,7 +490,9 @@ public class SurveyLayoutPhone extends LinearLayout
             mEtFeedback.setHorizontallyScrolling(false);
 
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-                setButtonsForKeyboardShown(0);
+                // Deviation from the upstream source.
+                // Don't adjust the layout params since they don't play well with android.support.design.widget.TextInputEditText
+                setButtonsForKeyboardShown(1);
             }
 
             imm.showSoftInput(mEtFeedback, InputMethodManager.SHOW_IMPLICIT);
