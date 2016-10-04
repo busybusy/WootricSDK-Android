@@ -31,6 +31,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -76,7 +78,8 @@ public class SurveyLayoutPhone extends LinearLayout
     private TextView mBtnDismiss;
     private TextView mBtnEditScore;
 
-    private EditText mEtFeedback;
+    private TextInputEditText mEtFeedback;
+    private TextInputLayout mFeedbackLayout;
 
     private ThankYouLayout mThankYouLayout;
 
@@ -179,7 +182,8 @@ public class SurveyLayoutPhone extends LinearLayout
     }
 
     private void initFeedbackViewElements() {
-        mEtFeedback = (EditText) mLayoutBody.findViewById(R.id.wootric_et_feedback);
+        mFeedbackLayout = (TextInputLayout) mLayoutBody.findViewById(R.id.wootric_et_feedback_layout);
+        mEtFeedback = (TextInputEditText) mLayoutBody.findViewById(R.id.wootric_et_feedback);
         Drawable etFeedbackBackground = mEtFeedback.getBackground();
         etFeedbackBackground.setColorFilter(mColorBlack, PorterDuff.Mode.SRC_ATOP);
         etFeedbackBackground.setAlpha(26);
@@ -339,7 +343,7 @@ public class SurveyLayoutPhone extends LinearLayout
         mBtnSubmit.setText(mSettings.getBtnSubmit());
         mBtnDismiss.setText(mSettings.getBtnDismiss());
         mBtnEditScore.setText(mSettings.getBtnEditScore());
-        mEtFeedback.setHint(mSettings.getFollowupPlaceholder(mRatingBar.getSelectedScore()));
+        mFeedbackLayout.setHint(mSettings.getFollowupPlaceholder(mRatingBar.getSelectedScore()));
     }
 
     private void setColors() {
@@ -413,7 +417,7 @@ public class SurveyLayoutPhone extends LinearLayout
 
         int currentScore = mRatingBar.getSelectedScore();
         mTvSurveyHeader.setText(mSettings.getFollowupQuestion(currentScore));
-        mEtFeedback.setHint(mSettings.getFollowupPlaceholder(currentScore));
+        mFeedbackLayout.setHint(mSettings.getFollowupPlaceholder(currentScore));
 
         mThankYouLayout.setVisibility(GONE);
         setKeyboardVisibility(true);
