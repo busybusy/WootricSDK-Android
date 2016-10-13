@@ -28,7 +28,6 @@ import android.os.Build;
 import android.util.Log;
 
 import com.wootric.androidsdk.BuildConfig;
-import com.wootric.androidsdk.Constants;
 import com.wootric.androidsdk.network.WootricApiCallback;
 
 import java.io.IOException;
@@ -96,7 +95,13 @@ public abstract class WootricRemoteRequestTask extends AsyncTask<Void, Void, Str
 
             conn.connect();
 
-            InputStream is = conn.getInputStream();
+            int status = conn.getResponseCode();
+            InputStream is;
+            if (status >= 400 && status < 500) {
+                is = conn.getErrorStream();
+            } else {
+                is = conn.getInputStream();
+            }
             return readInput(is);
 
         } catch (IOException e) {
